@@ -1,7 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Patch,
@@ -38,5 +41,11 @@ export class CarsController {
     @Body() body: UpdateCarDto,
   ) {
     return this.carsService.updateCarById(id, body);
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  deleteCarById(@Param(Body, ParseIntPipe) id: number) {
+    return this.carsService.deleteCarById(id);
   }
 }

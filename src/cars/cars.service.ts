@@ -42,4 +42,12 @@ export class CarsService {
 
     return carToUpdate;
   }
+
+  deleteCarById(id: number) {
+    const carToDelete = this.getCarById(id);
+
+    this.carsDb = this.carsDb.filter((car) => {car.id !== id})
+
+    return 
+  }
 }
